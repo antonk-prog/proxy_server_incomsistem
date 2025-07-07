@@ -1,5 +1,5 @@
 {
-    "port_proxy_server": 5555,
+    "port_proxy_server": 5556,
     "host_pg": "127.0.0.1",
     "port_pg": 5432,
     "pg_superuser": "postgres",

@@ -138,8 +138,8 @@ bool Parser::parseB(const char *data, size_t len) {
 			parseParameters(params_ptr, len - (portal_len + 1 + stmt_len + 1));
 	}
 
-	logQuery("[BIND] " + portal + " → " + stmt +
-			 (params.empty() ? "" : " (" + params + ")"));
+	//logQuery("[BIND] " + portal + " → " + stmt +
+	//		 (params.empty() ? "" : " (" + params + ")"));
 	return true;
 }
 
@@ -183,12 +183,12 @@ std::string Parser::parseParameters(const char *data, size_t len) {
 }
 
 bool Parser::parseS(const char *data, size_t len) {
-	logQuery("[SYNC]");
+	//	logQuery("[SYNC]");
 	return true;
 }
 
 bool Parser::parseX(const char *data, size_t len) {
-	logQuery("[TERMINATE]");
+	//logQuery("[TERMINATE]");
 	return true;
 }
 
@@ -201,10 +201,10 @@ bool Parser::parseC(const char *data, size_t len) {
 
 	switch (close_type) {
 	case 'S':
-		logQuery("[CLOSE STATEMENT] " + name);
+		//logQuery("[CLOSE STATEMENT] " + name);
 		break;
 	case 'P':
-		logQuery("[CLOSE PORTAL] " + name);
+		//logQuery("[CLOSE PORTAL] " + name);
 		break;
 	default:
 		break;
@@ -221,10 +221,10 @@ bool Parser::parseD(const char *data, size_t len) {
 
 	switch (desc_type) {
 	case 'S':
-		logQuery("[DESCRIBE STATEMENT] " + name);
+		//logQuery("[DESCRIBE STATEMENT] " + name);
 		break;
 	case 'P':
-		logQuery("[DESCRIBE PORTAL] " + name);
+		//logQuery("[DESCRIBE PORTAL] " + name);
 		break;
 	default:
 		break;
@@ -233,11 +233,11 @@ bool Parser::parseD(const char *data, size_t len) {
 }
 
 bool Parser::parseH(const char *data, size_t len) {
-	logQuery("[FLUSH]");
+	//logQuery("[FLUSH]");
 	return true;
 }
 
 bool Parser::parseF(const char *data, size_t len) {
-	logQuery("[FUNCTION CALL] (legacy)");
+	///logQuery("[FUNCTION CALL] (legacy)");
 	return true;
 }
