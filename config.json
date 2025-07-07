@@ -1,0 +1,13 @@
+{
+    "port_proxy_server": 5555,
+    "host_pg": "127.0.0.1",
+    "port_pg": 5432,
+    "pg_superuser": "postgres",
+    "pg_superuser_password": "postgres",
+
+
+    "sysbench_threads": 100,
+    "sysbench_time": 10,
+    "sysbench_tables": 4,
+    "sysbench_table_size": 100000
+}
