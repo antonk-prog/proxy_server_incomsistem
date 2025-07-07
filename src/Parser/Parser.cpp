@@ -138,8 +138,8 @@ bool Parser::parseB(const char *data, size_t len) {
 			parseParameters(params_ptr, len - (portal_len + 1 + stmt_len + 1));
 	}
 
-	//logQuery("[BIND] " + portal + " → " + stmt +
-	//		 (params.empty() ? "" : " (" + params + ")"));
+	logQuery("[BIND] " + portal + " → " + stmt +
+			 (params.empty() ? "" : " (" + params + ")"));
 	return true;
 }
 
