@@ -7,7 +7,7 @@
 
 
     "sysbench_threads": 100,
-    "sysbench_time": 10,
+    "sysbench_time": 300,
     "sysbench_tables": 4,
     "sysbench_table_size": 100000
 }
