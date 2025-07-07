@@ -3,7 +3,8 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <unistd.h>
-constexpr size_t INITIAL_FILE_SIZE = 1024 * 1024;
+// т.к. предполагается что файл логов будет большим, нужно заранее выделить хотя бы 1 гб
+constexpr size_t INITIAL_FILE_SIZE = 1024ULL * 1024 * 1024;
 
 AsyncLogger::AsyncLogger(const std::string &filename, size_t batchSize,
 						 int flushIntervalMs)
@@ -58,8 +59,8 @@ void AsyncLogger::log(std::string message) {
 }
 
 void AsyncLogger::ensureCapacity(size_t requiredSize) {
-	const size_t reserveThreshold = mappedSize * 9 / 10; // 90% граница
-	const size_t expansionStep = 128 * 1024 * 1024;		 // 128 мб
+	const size_t reserveThreshold = mappedSize * 7 / 10; // 70% граница
+	const size_t expansionStep = 512 * 1024 * 1024;		 // 512 мб
 
 	if (requiredSize < reserveThreshold)
 		return;
